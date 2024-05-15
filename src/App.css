@@ -36,3 +36,29 @@
     transform: rotate(360deg);
   }
 }
+
+.mainContainer{
+  border:solid black;
+  display:flex;
+  justify-content: space-between;
+}
+.proContainer{
+  border:solid blue;
+  width:40vw;
+}
+.dashContainer{
+  border:solid red;
+  width:40vw;
+}
+.kid{
+  border:solid black;
+  margin:1em;
+  border-radius:12px;
+}
+.kid:hover{
+  border:solid black;
+  background-color:green;
+  color:white;
+  margin:1em;
+  border-radius:12px;
+}

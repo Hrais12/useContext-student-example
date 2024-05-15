@@ -1,23 +1,34 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+
+import { useState, createContext, useContext } from "react";
+import { allStudents } from "./models/students";
+import Dashboard from "./components/Dashboard";
+import Profile from "./components/Profile";
+
+//create our variable to represent context
+
+export const StudentContext = createContext();
 
 function App() {
+  const [students, setStudents] = useState(allStudents);
+
+  const [currentStudent, setCurrentStudent] = useState({});
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <StudentContext.Provider
+        value={{ students, setStudents, currentStudent, setCurrentStudent }}
+      >
+        <div className="mainContainer">
+          <div className="dash">
+            <Dashboard />
+          </div>
+          <div className="profile">
+            {" "}
+            <Profile />
+          </div>
+        </div>
+      </StudentContext.Provider>
     </div>
   );
 }
